@@ -1,14 +1,15 @@
 from fastapi import APIRouter;
-from app.services.video_service import validar_url
-from app.services.video_service import obter_plataforma
-from app.services.video_service import eh_instagram
+from app.utils.url_utils import obter_plataforma
+from app.utils.url_utils import eh_instagram
 
 router = APIRouter()
 
 @router.get("/health")
 def health():
     return {
-        "status": "rota health"
+        "status": "online",
+        "versao": "1.0.0",
+        "api": "Instagram Reel Downloader"
     }
 
 @router.get("/version")
